@@ -26,6 +26,7 @@ import UIKit
  Recomended use it.
  */
 @available(iOSApplicationExtension, unavailable)
+@available(tvOSApplicationExtension, unavailable)
 public enum SPAlert {
     
     /**
