@@ -34,7 +34,6 @@ import UIKit
  Recomended call `SPAlert` and choose style func.
  */
 @available(tvOSApplicationExtension, unavailable)
-@available(iOSApplicationExtension, unavailable)
 open class SPAlertView: UIView {
     
     // MARK: - Properties
@@ -50,15 +49,7 @@ open class SPAlertView: UIView {
     
     private lazy var backgroundView: UIVisualEffectView = {
         let view: UIVisualEffectView = {
-            #if os(iOS)
-            if #available(iOS 13.0, *) {
-                return UIVisualEffectView(effect: UIBlurEffect(style: .systemThickMaterial))
-            } else {
-                return UIVisualEffectView(effect: UIBlurEffect(style: .light))
-            }
-            #elseif os(tvOS)
             return UIVisualEffectView(effect: UIBlurEffect(style: .regular))
-            #endif
         }()
         view.isUserInteractionEnabled = false
         return view
@@ -111,11 +102,7 @@ open class SPAlertView: UIView {
     
     private func setTitle(_ text: String) {
         let label = UILabel()
-        #if os(iOS)
-        label.font = UIFont.preferredFont(forTextStyle: .title2, weight: .bold)
-        #elseif os(tvOS)
         label.font = UIFont.boldSystemFont(ofSize: 36)
-        #endif
         label.numberOfLines = 0
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 3
@@ -127,11 +114,7 @@ open class SPAlertView: UIView {
     
     private func setMessage(_ text: String) {
         let label = UILabel()
-        #if os(iOS)
-        label.font = UIFont.preferredFont(forTextStyle: .body)
-        #elseif os(tvOS)
         label.font = UIFont.systemFont(ofSize: 28)
-        #endif
         label.numberOfLines = 0
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 2
@@ -226,11 +209,7 @@ open class SPAlertView: UIView {
     
     fileprivate func setFrame() {
         guard let window = self.presentWindow else { return }
-        #if os(iOS)
-        frame = CGRect.init(x: 0, y: 0, width: 250, height: 100)
-        #elseif os(tvOS)
         frame = CGRect.init(x: 0, y: 0, width: 500, height: 300)
-        #endif
         center = .init(x: window.frame.midX, y: window.frame.midY)
         layoutMargins = layout.margins
         sizeToFit()
