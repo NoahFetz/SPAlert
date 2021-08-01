@@ -33,7 +33,6 @@ import UIKit
  
  Recomended call `SPAlert` and choose style func.
  */
-@available(tvOSApplicationExtension, unavailable)
 open class SPAlertView: UIView {
     
     // MARK: - Properties
@@ -84,7 +83,7 @@ open class SPAlertView: UIView {
     
     private func commonInit() {
         preservesSuperviewLayoutMargins = false
-        if #available(iOS 11.0, tvOS 11.0, *) {
+        if #available(tvOS 11.0, *) {
             insetsLayoutMarginsFromSafeArea = false
         }
         layer.masksToBounds = true
@@ -138,7 +137,7 @@ open class SPAlertView: UIView {
     fileprivate var defaultContentColor: UIColor {
         let darkColor = UIColor(red: 127 / 255, green: 127 / 255, blue: 129 / 255, alpha: 1)
         let lightColor = UIColor(red: 88 / 255, green: 87 / 255, blue: 88 / 255, alpha: 1)
-        if #available(iOS 12.0, tvOS 12.0, *) {
+        if #available(tvOS 12.0, *) {
             guard let interfaceStyle = self.window?.traitCollection.userInterfaceStyle else {
                 return lightColor
             }

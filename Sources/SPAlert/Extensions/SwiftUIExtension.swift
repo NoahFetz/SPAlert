@@ -23,9 +23,7 @@
 
 import SwiftUI
 
-@available(iOS 13.0, tvOS 13.0, *)
-@available(tvOSApplicationExtension, unavailable)
-@available(iOSApplicationExtension, unavailable)
+@available(tvOS 13.0, *)
 extension View {
     
     public func spAlert(
