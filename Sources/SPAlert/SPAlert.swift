@@ -25,7 +25,6 @@ import UIKit
  SPAlert: Acess level. Here you get ready-use methods.
  Recomended use it.
  */
-@available(tvOSApplicationExtension, unavailable)
 public enum SPAlert {
     
     /**
