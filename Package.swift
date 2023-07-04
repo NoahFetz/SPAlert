@@ -3,23 +3,28 @@
 import PackageDescription
 
 let package = Package(
-    name: "SPAlert",
+    name: "AlertKit",
     platforms: [
-        .iOS(.v11)
+        .iOS(.v13)
     ],
     products: [
         .library(
-            name: "SPAlert",
-            targets: ["SPAlert"]
+            name: "AlertKit",
+            targets: ["AlertKit"]
         )
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "SPAlert",
+            name: "AlertKit",
             swiftSettings: [
-                .define("SPPALERT_SPM")
+                .define("ALERTKIT_SPM")
             ]
+        ),
+        .testTarget(
+            name: "AlertKitTests",
+            dependencies: ["AlertKit"],
+            path: "Tests"
         )
     ],
     swiftLanguageVersions: [.v5]
