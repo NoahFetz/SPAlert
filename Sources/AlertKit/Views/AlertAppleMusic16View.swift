@@ -1,21 +1,29 @@
 import UIKit
 
-public class AlertAppleMusic16View: UIView {
+@available(iOS 13, *)
+public class AlertAppleMusic16View: UIView, AlertViewProtocol {
     
     open var dismissByTap: Bool = true
     open var dismissInTime: Bool = true
     open var duration: TimeInterval = 1.5
     open var haptic: AlertHaptic? = nil
     
-    fileprivate let titleLabel: UILabel?
-    fileprivate let subtitleLabel: UILabel?
-    fileprivate let iconView: UIView?
+    public let titleLabel: UILabel?
+    public let subtitleLabel: UILabel?
+    public let iconView: UIView?
+    
+    public static var defaultContentColor = UIColor { trait in
+        switch trait.userInterfaceStyle {
+        case .dark: return UIColor(red: 127 / 255, green: 127 / 255, blue: 129 / 255, alpha: 1)
+        default: return UIColor(red: 88 / 255, green: 87 / 255, blue: 88 / 255, alpha: 1)
+        }
+    }
     
     fileprivate weak var viewForPresent: UIView?
     fileprivate var presentDismissDuration: TimeInterval = 0.2
     fileprivate var presentDismissScale: CGFloat = 0.8
     
-    var completion: (() -> Void)? = nil
+    open var completion: (() -> Void)? = nil
     
     private lazy var backgroundView: UIVisualEffectView = {
         let view: UIVisualEffectView = {
@@ -74,6 +82,10 @@ public class AlertAppleMusic16View: UIView {
             layout = AlertLayout(for: icon ?? .heart)
         }
         
+        self.titleLabel?.textColor = Self.defaultContentColor
+        self.subtitleLabel?.textColor = Self.defaultContentColor
+        self.iconView?.tintColor = Self.defaultContentColor
+        
         super.init(frame: .zero)
         
         preservesSuperviewLayoutMargins = false
@@ -113,27 +125,6 @@ public class AlertAppleMusic16View: UIView {
     }
     
     open func present(on view: UIView, completion: @escaping ()->Void = {}) {
-        
-        let contentColor = {
-            let darkColor = UIColor(red: 127 / 255, green: 127 / 255, blue: 129 / 255, alpha: 1)
-            let lightColor = UIColor(red: 88 / 255, green: 87 / 255, blue: 88 / 255, alpha: 1)
-            if #available(iOS 12.0, *) {
-                let interfaceStyle = view.traitCollection.userInterfaceStyle
-                switch interfaceStyle {
-                case .light: return lightColor
-                case .dark: return darkColor
-                case .unspecified: return lightColor
-                @unknown default: return lightColor
-                }
-            } else {
-                return lightColor
-            }
-        }()
-        
-        self.titleLabel?.textColor = contentColor
-        self.subtitleLabel?.textColor = contentColor
-        self.iconView?.tintColor = contentColor
-        
         self.completion = completion
         self.viewForPresent = view
         viewForPresent?.addSubview(self)
