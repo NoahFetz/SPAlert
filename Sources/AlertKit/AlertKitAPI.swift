@@ -25,4 +25,32 @@ public enum AlertKitAPI {
         #endif
         }
     }
+    
+    public static func dismissAllAlerts(completion: (() -> Void)? = nil) {
+        
+        var alertViews: [AlertViewProtocol] = []
+        
+        for window in UIApplication.shared.windows {
+            for view in window.subviews {
+                if let view = view as? AlertViewProtocol {
+                    alertViews.append(view)
+                }
+            }
+        }
+        
+        if alertViews.isEmpty {
+            completion?()
+        } else {
+            for (index, view) in alertViews.enumerated() {
+                if index == .zero {
+                    view.dismiss(completion: completion)
+                } else {
+                    view.dismiss(completion: nil)
+                }
+            }
+            alertViews.first?.dismiss {
+                completion?()
+            }
+        }
+    }
 }
