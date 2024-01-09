@@ -26,23 +26,11 @@ public enum AlertViewStyle {
 }
 ```
 
-### Community
+### iOS Dev Community
 
 <p float="left">
-    <a href="https://twitter.com/sparrowcode_en">
-        <img src="https://cdn.sparrowcode.io/github/badges/twitter-en.png?version=5" height="52">
-    </a>
-    <a href="https://twitter.com/sparrowcode_">
-        <img src="https://cdn.sparrowcode.io/github/badges/twitter-ru.png?version=5" height="52">
-    </a>
-    <a href="https://t.me/sparrowcode_en">
-        <img src="https://cdn.sparrowcode.io/github/badges/telegram-en.png?version=2" height="52">
-    </a>
-    <a href="https://t.me/sparrowcode">
-        <img src="https://cdn.sparrowcode.io/github/badges/telegram-ru.png?version=2" height="52">
-    </a>
-        <a href="https://youtube.com/@sparrowcode">
-        <img src="https://cdn.sparrowcode.io/github/badges/youtube-ru.png?version=1" height="52">
+    <a href="https://twitter.com/i/communities/1730194338489987403">
+        <img src="https://cdn.sparrowcode.io/github/badges/x-community.png?version=1" height="52">
     </a>
     <a href="#apps-using">
         <img src="https://cdn.sparrowcode.io/github/badges/download-on-the-appstore.png?version=4" height="52">
@@ -75,7 +63,7 @@ or adding it to the `dependencies` of your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/sparrowcode/AlertKit", .upToNextMajor(from: "5.1.5"))
+    .package(url: "https://github.com/sparrowcode/AlertKit", .upToNextMajor(from: "5.1.8"))
 ]
 ```
 
@@ -99,7 +87,7 @@ If you prefer not to use any of dependency managers, you can integrate manually.
 
 ## SwiftUI
 
-You can use basic way via AlertKitAPI or call via modifier:
+You can use basic way via `AlertKitAPI` or call via modifier:
 
 ```swift
 let alertView = AlertAppleMusic17View(title: "Hello", subtitle: nil, icon: .done)
@@ -114,9 +102,10 @@ If you need customisation fonts, icon, colors or any other, make view:
 
 ```swift
 let alertView = AlertAppleMusic17View(title: "Added to Library", subtitle: nil, icon: .done)
-// Change Font
+
+// change font
 alertView.titleLabel.font = UIFont.systemFont(ofSize: 21)
-// Change Color
+// change color
 alertView.titleLabel.textColor = .white
 ```
 
@@ -126,8 +115,9 @@ You can present and dismiss alerts manually via view.
 
 ```swift
 let alertView = AlertAppleMusic17View(title: "Added to Library", subtitle: nil, icon: .done)
-alertView.present(on: self)
 
+// present
+alertView.present(on: self)
 // and dismiss
 alertView.dismiss()
 ```
@@ -141,14 +131,15 @@ AlertKitAPI.dismissAllAlerts()
 ## Apps Using
 
 <p float="left">
-    <a href="https://apps.apple.com/app/id1624477055"><img src="https://cdn.sparrowcode.io/github/apps-using/id1624477055.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id1625641322"><img src="https://cdn.sparrowcode.io/github/apps-using/id1625641322.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id1625641322"><img src="https://cdn.sparrowcode.io/github/apps-using/id6449774982.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id875280793"><img src="https://cdn.sparrowcode.io/github/apps-using/id875280793.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id743843090"><img src="https://cdn.sparrowcode.io/github/apps-using/id743843090.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id537070378"><img src="https://cdn.sparrowcode.io/github/apps-using/id537070378.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id1617055933"><img src="https://cdn.sparrowcode.io/github/apps-using/id1617055933.png?version=2" height="65"></a>
-    <a href="https://apps.apple.com/app/id1668579869"><img src="https://cdn.sparrowcode.io/github/apps-using/id1668579869.png?version=1" height="65"></a>
+    <a href="https://apps.apple.com/app/id1624477055"><img src="https://cdn.sparrowcode.io/github/apps-using/id1624477055.png?v=2" height="65"></a>
+    <a href="https://apps.apple.com/app/id1625641322"><img src="https://cdn.sparrowcode.io/github/apps-using/id1625641322.png?v=2" height="65"></a>
+    <a href="https://apps.apple.com/app/id1625641322"><img src="https://cdn.sparrowcode.io/github/apps-using/id6449774982.png?v=2" height="65"></a>
+    <a href="https://apps.apple.com/app/id875280793"><img src="https://cdn.sparrowcode.io/github/apps-using/id875280793.png?v=2" height="65"></a>
+    <a href="https://apps.apple.com/app/id743843090"><img src="https://cdn.sparrowcode.io/github/apps-using/id743843090.png?v=2" height="65"></a>
+    <a href="https://apps.apple.com/app/id537070378"><img src="https://cdn.sparrowcode.io/github/apps-using/id537070378.png?v=2" height="65"></a>
+    <a href="https://apps.apple.com/app/id1617055933"><img src="https://cdn.sparrowcode.io/github/apps-using/id1617055933.png?v=2" height="65"></a>
+    <a href="https://apps.apple.com/app/id1668579869"><img src="https://cdn.sparrowcode.io/github/apps-using/id1668579869.png?v=1" height="65"></a>
+    <a href="https://apps.apple.com/app/id6451087813"><img src="https://cdn.sparrowcode.io/github/apps-using/id6451087813.png?v=1" height="65"></a>
 </p>
 
 If you use a `AlertKit`, add your app via Pull Request.
